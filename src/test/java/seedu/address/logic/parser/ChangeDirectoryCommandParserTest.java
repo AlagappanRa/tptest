@@ -2,7 +2,6 @@ package seedu.address.logic.parser;
 
 import static seedu.address.logic.Messages.MESSAGE_INVALID_PATH_FORMAT;
 import static seedu.address.logic.Messages.MESSAGE_MISSING_ARGUMENT;
-import static seedu.address.logic.Messages.MESSAGE_PATH_RESOLUTION_FAIL;
 import static seedu.address.logic.commands.ChangeDirectoryCommand.COMMAND_WORD;
 import static seedu.address.logic.commands.CommandTestUtil.ADDRESS_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.EMPTY_PREAMBLE;
@@ -11,6 +10,7 @@ import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_AMY;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 import static seedu.address.model.path.AbsolutePath.ROOT_PATH;
+import static seedu.address.model.path.Path.MESSAGE_UNABLE_TO_NAVIGATE_ABOVE_ROOT;
 import static seedu.address.testutil.TypicalGroups.GROUP_ONE;
 import static seedu.address.testutil.TypicalPaths.PATH_TO_GROUP_ONE;
 
@@ -60,7 +60,7 @@ public class ChangeDirectoryCommandParserTest {
     public void parse_invalidRelativePath_throwsParseException() {
         String invalidRelativePath = "../..";
         assertParseFailure(parser, invalidRelativePath, ROOT_PATH,
-                String.format(MESSAGE_PATH_RESOLUTION_FAIL, invalidRelativePath));
+                String.format(MESSAGE_UNABLE_TO_NAVIGATE_ABOVE_ROOT, invalidRelativePath));
     }
 
     @Test
