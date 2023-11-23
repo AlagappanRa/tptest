@@ -1,7 +1,7 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.logic.Messages.MESSAGE_INVALID_PATH_FORMAT;
-import static seedu.address.logic.Messages.MESSAGE_PATH_RESOLUTION_FAIL;
+import static seedu.address.logic.Messages.MESSAGE_PATH_NOT_FOUND;
 import static seedu.address.logic.commands.CommandTestUtil.ADDRESS_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.EMPTY_PREAMBLE;
 import static seedu.address.logic.commands.CommandTestUtil.HELP_OPTION;
@@ -62,7 +62,7 @@ public class ShowTaskListCommandParserTest {
     public void parse_invalidRelativePath_throwsParseException() {
         String invalidRelativePath = "../..";
         assertParseFailure(parser, invalidRelativePath, ROOT_PATH,
-                String.format(MESSAGE_PATH_RESOLUTION_FAIL, invalidRelativePath));
+                String.format(MESSAGE_PATH_NOT_FOUND, invalidRelativePath));
     }
 
     @Test
