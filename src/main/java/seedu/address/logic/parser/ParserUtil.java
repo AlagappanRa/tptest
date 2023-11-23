@@ -4,7 +4,6 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import static seedu.address.logic.Messages.MESSAGE_EMPTY_VALUE;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_PATH_FORMAT;
-import static seedu.address.logic.Messages.MESSAGE_PATH_RESOLUTION_FAIL;
 import static seedu.address.logic.parser.CliSyntax.OPTION_HELP;
 
 import java.time.LocalDateTime;
@@ -150,7 +149,7 @@ public class ParserUtil {
         try {
             fullPath = path.resolve(targetPath);
         } catch (InvalidPathException e) {
-            throw new ParseException(String.format(MESSAGE_PATH_RESOLUTION_FAIL, targetPath));
+            throw new ParseException(String.format(e.getMessage(), targetPath));
         }
         return fullPath;
     }

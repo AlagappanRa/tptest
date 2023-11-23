@@ -1,5 +1,7 @@
 package seedu.address.model.path;
 
+import static seedu.address.logic.Messages.MESSAGE_INVALID_PATH_FORMAT;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -9,6 +11,7 @@ import seedu.address.model.path.element.PathElement;
 import seedu.address.model.path.element.PathElementType;
 import seedu.address.model.path.element.exceptions.InvalidPathElementException;
 import seedu.address.model.path.exceptions.InvalidPathException;
+
 
 /**
  * Represents a path in our application.
@@ -133,7 +136,7 @@ public abstract class Path {
         if (priorityDiff != -1
                 && prevElement.getType() != PathElementType.PARENT
                 && prevElement.getType() != PathElementType.CURRENT) {
-            throw new InvalidPathException(MESSAGE_INVALID_PATH_STRUCTURE);
+            throw new InvalidPathException(MESSAGE_INVALID_PATH_FORMAT);
         }
 
         destination.add(element);
