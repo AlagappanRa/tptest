@@ -2,7 +2,7 @@ package seedu.address.logic.parser;
 
 import static seedu.address.logic.Messages.MESSAGE_INVALID_PATH_FORMAT;
 import static seedu.address.logic.Messages.MESSAGE_MISSING_ARGUMENT;
-import static seedu.address.logic.Messages.MESSAGE_PATH_RESOLUTION_FAIL;
+import static seedu.address.logic.Messages.MESSAGE_PATH_NOT_FOUND;
 import static seedu.address.logic.commands.ChangeDirectoryCommand.COMMAND_WORD;
 import static seedu.address.logic.commands.CommandTestUtil.ADDRESS_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.EMPTY_PREAMBLE;
@@ -60,7 +60,7 @@ public class ChangeDirectoryCommandParserTest {
     public void parse_invalidRelativePath_throwsParseException() {
         String invalidRelativePath = "../..";
         assertParseFailure(parser, invalidRelativePath, ROOT_PATH,
-                String.format(MESSAGE_PATH_RESOLUTION_FAIL, invalidRelativePath));
+                String.format(MESSAGE_PATH_NOT_FOUND, invalidRelativePath));
     }
 
     @Test
